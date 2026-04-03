@@ -1,128 +1,646 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IronPeak Gym</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>NEW Version</title>
+  <style>
+    :root {
+      --primary: deeppink;
+      --background: deepskyblue;
+      --white: #fff;
+      --browntype: #795238;
+      --olive: #565449;
+      --bone: #d8cfbc;
+      --sea-lion: #808a92;
+      --blue-dolphin: #bdc7ce;
+      --chimney: #4a5156;
+      --dark: #101511;
+
+
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      list-style: none;
+    }
+
+    body {
+      scroll-behavior: smooth;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
+
+    /* ============ MAIN  ===================  */
+    .main {
+      width: 100%;
+      height: 85vh;
+      background: var(--background) url(img/portfolio.jpeg) center/cover;
+      position: relative;
+    }
+
+    .main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0.3);
+    }
+
+    .navbar {
+      position: relative;
+      z-index: 1;
+
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      background: #ffffff12;
+      backdrop-filter: blur(15px);
+    }
+
+    li a {
+      color: var(--white);
+      font-weight: 500;
+    }
+    .navbar ul li a{
+     position: relative;
+     color:white;
+
+    }
+    li a::after{
+      content: "";
+      position: absolute;
+
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--bone);
+    transform: translateX(-50%);
+      transition: width 0.3s ease;
+
+    } li a:hover::after{
+      width: 100%;
+      color: var(--bone);
+    }
+
+    .me {
+      position: relative;
+      z-index: 1;
+      color: var(--white);
+      margin-top: 100px;
+    }
+
+    .hello {
+      font-size: 30px;
+      margin: 60px;
+
+    }
+
+    .name {
+      display: flex;
+      justify-content: center;
+      font-size: clamp(80px, 20vw, 280px);
+
+
+    }
+
+    .name span {
+      margin: 0 40px;
+      animation: move 1.5s ease-in-out infinite;
+      color: #111;
+    }
+
+    .name span:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .name span:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .name span:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .name span:nth-child(4) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes move {
+
+      0%,
+      100% {
+        color: #111;
+        text-shadow: 0 0 5px #00f2ff, 0 0 10px #00f2ff, 0 0 20px #00f2ff;
+        transform: translateY(0);
+
+      }
+
+      50% {
+        color: cyan;
+        text-shadow: 0 0 20px #00f2ff, 0 0 40px #00f2ff,
+          0 0 60px #00f2ff;
+        transform: translateY(-20px);
+      }
+    }
+
+    /* ========= ABOUT =========  */
+    .intro {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 60px 20px;
+      background: var(--dark);
+      flex-wrap: wrap;
+
+    }
+
+    .pic img {
+      width: 350px;
+      height: 450px;
+      border-radius: 30px;
+      border: 2px groove var(--bone);
+    }
+
+    .para {
+      max-width: 500px;
+
+    }
+
+    .para p {
+      color: var(--white);
+      font-size: 20px;
+      line-height: 32px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 20px;
+    }
+
+    /* ========== SOCIAL ==========  */
+    .icon section {
+      display: flex;
+      justify-content: space-around;
+      background: var(--sea-lion);
+
+      box-shadow: inset 0 0 40px #111;
+
+
+    }
+
+    .icon a {
+      font-size: 25px;
+      color: yellow;
+      transition: 0.3s;
+      padding: 20px;
+    }
+
+    .icon a:hover {
+      transform: translateY(-10px);
+      color: var(--blue-dolphin);
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+      border-radius: 50%;
+    }
+
+
+    /* ================ SKILLS ================   */
+    .wrap {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 60px 0;
+      background: var(--sea-lion);
+      flex-wrap: wrap;
+    }
+
+    .darkside {
+      width: 180px;
+      height: 180px;
+      background: var(--chimney);
+      color: var(--blue-dolphin);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: inset 0 0 35px var(--primary);
+      transition: 0.3s;
+    }
+    .progress-ring{
+      position: absolute;
+    }
+    .progress-ring circle{
+      fill: none;
+      stroke-width: 10;
+    }
+    .progress-ring .bg{
+      stroke: #333;
+    }
+    .progress-ring.progress{
+      stroke:cyan ;
+      stroke-linecap: round;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      stroke-dashoffset: 440;
+      stroke-dasharray: 440;
+    }
+
+    /* ============= PROJECTS =============  */
+    .projects {
+      display: flex;
+      justify-content: space-around;
+      gap: -30px;
+      padding: 50px;
+      background: var(--sea-lion);
+      flex-wrap: wrap;
+    }
+
+    .projects span {
+      padding: 30px 50px;
+      background: var(--sea-lion);
+      color: var(--blue-dolphin);
+      border-radius: 40px;
+      font-size: 20px;
+      box-shadow: 0 0 20px var(--dark);
+      cursor: pointer;
+    }
+    .projects span:hover{
+transform: translateY(-15px);
+transition: 0.4s;
+color: deepskyblue;
+text-shadow: 0 0 40px var(--dark);
+    }
+    
+    
+
+    /* =========== picture section ===========  */
+    .glass-wraper {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      perspective: 1200px;
+      padding: 80px 0;
+    }
+
+    .glass-card {
+      width: 220px;
+      height: 340px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(255, 255, 255, 0.15);
+      transform-style: preserve-3d;
+      transition: 0.6s ease;
+      overflow: hidden;
+    }
+
+    .glass-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translateZ(40px);
+
+    }
+
+    .glass-card:hover {
+      transform: rotate(0deg) scale(1.05) translateZ(50px);
+
+    }
+
+    .glass-card.active {
+      transform: rotate(0deg) scale(1.15);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+    }
+
+    .form {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--sea-lion);
+    }
+
+    .my-email {
+      color: var(--blue-dolphin);
+      margin-bottom: 20px;
+      font-size: 20px;
+      background: var(--sea-lion);
+      box-shadow: 2px 4px 10px var(--dark);
+      padding: 20px;
+      border-radius: 40px;
+      text-align: center;
+
+    }
+
+    input,
+    textarea,
+    button {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+      border-radius: 10px;
+      border: none;
+
+    }
+
+    button {
+      cursor: pointer;
+      background: blue;
+      color: white;
+    }
+    .product {
+  width: 500px;
+  margin: auto;
+}
+
+
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.watch{ display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #4a5156,
+  #101511, #4a5156);
+
+
+}
+.thumb {
+  width: 60px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+  border-radius: 8px;
+}
+
+.thumb:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.thumb.active {
+  opacity: 1;
+  border: 2px solid blue;
+}
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  /* Navbar */
+  ul {
+    flex-direction: row;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  li {
+    margin: 10px 0;
+  }
+
+  /* Hero Section */
+  .main {
+    height: auto;
+    padding: 50px 10px;
+  }
+
+  .hello {
+    font-size: 20px;
+    margin: 20px;
+    text-align: center;
+  }
+
+  .name {
+    font-size: 60px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .name span {
+    margin: 0 10px;
+  }
+
+  /* About Section */
+  .intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pic img {
+    width: 90%;
+    height: auto;
+  }
+
+  .para p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  /* Skills */
+  .wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .darkside {
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Projects */
+  .projects {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .projects span {
+    width: 80%;
+    text-align: center;
+  }
+
+  /* Glass cards */
+  .glass-wraper {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .glass-card {
+    width: 90%;
+    height: auto;
+  }
+
+  /* Form */
+  input,
+  textarea,
+  button {
+    width: 90%;
+  }
+}
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#" class="logo">IRONPEAK</a>
-      <nav class="main-nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#classes">Classes</a>
-        <a href="#trainers">Trainers</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a href="#signup" class="btn btn-primary">Start Free Trial</a>
+  <header class="main" id="home">
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
+
+    <div class="me">
+      <p class="hello">Hello i'm</p>
+      <h1 class="name">
+        <span>A</span><span>Z</span><span>A</span><span>D</span>
+      </h1>
     </div>
   </header>
+  <section class="intro" id="about">
+    <div class="pic"><img src="img/azad.jpg" alt="
+      AZAD"></div>
+    <div class="para">
+      <p>
+        A passionate <b>Fron-End web Developer </b>. I enjoy building clean , resposive, and user-friendly website using
+        <b>HTML & CSS</b>. Currently learning <b>JavaScript </b> to create interactive experiences.
+      </p>
+    </div>
 
-  <section id="home" class="hero">
-    <div class="container hero-content">
-      <h1>Get Stronger. Live Healthier.</h1>
-      <p>Join IronPeak Gym today and transform your fitness with expert coaches, powerful equipment, and a supportive community.</p>
-      <div class="cta-wrap">
-        <a href="#signup" class="btn btn-primary">Book a Free Pass</a>
-        <a href="#classes" class="btn btn-secondary">View Classes</a>
-      </div>
+  </section>
+  <div class="icon">
+    <section>
+      <a href="#"> <i class="fa-brands fa-google"></i></a>
+      <a href="#"> <i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#"> <i class="fa-brands fa-github"></i></a>
+      <a href="#"> <i class="fa-brands fa-instagram"></i></a>
+      <a href="#"> <i class="fa-brands fa-facebook"></i></a>
+    </section>
+  </div>
+  <section class="wrap" id="skills">
+    <div class="darkside">
+      <svg class="progress-ring" width="160" height="160">
+        <circle class="bg"
+        cx="80" cy="80" r="70"/>
+        <circle class="progress"
+        cx="80" cy="80" r="70"
+        data-target="80"/>
+      </svg><h2>HTML</h2>
+      <p class="counter">0%</p>
+    </div>
+
+    <div class="darkside">
+      <svg class="progress-ring" width="160"  height="160">
+        <circle class="bg"
+        cx="80" cy="80" r="70"/>
+        <circle class="progress"
+        cx="80" cy="80" r="70"
+        data-target="70"/>
+      </svg> <h2>CSS</h2>
+      <p class="counter">0%</p>
+    </div>
+
+    <div class="darkside">
+      <svg class="progress-ring" width="160" height="160">
+        <circle class="bg"
+        cx="80" cy="80" r="70"/>
+        <circle class="progress" cx="80" cy="80" r="70" 
+        data-target="60"/>
+      </svg>
+      <h2>JavaScript</h2>
+      <p class="counter">0%</p>
     </div>
   </section>
+  
 
-  <section id="about" class="content-block">
-    <div class="container">
-      <h2>Why IronPeak?</h2>
-      <p>We combine science-backed training, nutrition coaching, and intensive community support to help you crush goals and feel your best.</p>
-      <div class="features-grid">
-        <div class="feature-card">
-          <h3>24/7 Access</h3>
-          <p>Train on your schedule with secure entry any time.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Pro Coaches</h3>
-          <p>Certified trainers help you master technique and progress safely.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Program Variety</h3>
-          <p>Strength, HIIT, yoga, mobility, recovery, and more.</p>
-        </div>
-      </div>
+  <section class="projects" id="projects">
+    <span>Registration Form</span>
+    <span>Login Page</span>
+    <span>Landing Page</span>
+  </section>
+  <div class="glass-wraper">
+    <div class="glass-card">
+      <img src="img/azad.jpg" alt="">
     </div>
+    <div class="glass-card active">
+      <img src="img/sitt.jpeg" alt="">
+    </div>
+    <div class="glass-card">
+      <img src="img/samjha.jpeg" alt="">
+    </div>
+  </div>   
+  
+  <!-- Main Image -->
+ 
+</div>
+  <section class="form">
+    <p class="my-email"> darkazad39@gmail.com</p>
+    <form>
+      <input type="text " placeholder="Name" required><br>
+      <input type="text" placeholder="Email" required> <br>
+      <textarea rows="4" placeholder="Message"></textarea><br>
+      <button type="submit">Submit</button>
+    </form>
   </section>
 
-  <section id="classes" class="content-block alternate">
-    <div class="container">
-      <h2>Class Schedule</h2>
-      <p>Small group classes that fit every level and goal.</p>
-      <div class="classes-grid">
-        <article class="class-box">
-          <h3>Powerlifting</h3>
-          <p>Mon/Wed/Fri | 6:30 AM</p>
-        </article>
-        <article class="class-box">
-          <h3>HIIT Burn</h3>
-          <p>Tue/Thu | 5:30 PM</p>
-        </article>
-        <article class="class-box">
-          <h3>Yoga & Mobility</h3>
-          <p>Sat | 10:00 AM</p>
-        </article>
-      </div>
-    </div>
-  </section>
+  <script>
+  const circles = document.querySelectorAll(".progress");
 
-  <section id="trainers" class="content-block">
-    <div class="container">
-      <h2>Meet the Trainers</h2>
-      <div class="trainers-grid">
-        <div class="trainer-card"><h3>Alex Rivera</h3><p>Strength Coach</p></div>
-        <div class="trainer-card"><h3>Monica Patel</h3><p>Nutrition Specialist</p></div>
-        <div class="trainer-card"><h3>Jamal Lewis</h3><p>Cardio & HIIT</p></div>
-      </div>
-    </div>
-  </section>
+  circles.forEach((circle, index) => {
+    const target = parseInt(circle.dataset.target);
+    const counter = document.querySelectorAll(".counter")[index];
 
-  <section id="signup" class="content-block alternate">
-    <div class="container">
-      <h2>Join Today</h2>
-      <p>Pick a plan and get 7 days free access immediately.</p>
-      <form class="form-grid" action="#" method="POST">
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <input type="tel" placeholder="Phone" required />
-        <select required>
-          <option value="">Select Plan</option>
-          <option value="basic">Basic - $19/mo</option>
-          <option value="pro">Pro - $39/mo</option>
-          <option value="elite">Elite - $69/mo</option>
-        </select>
-        <button type="submit" class="btn btn-primary">Start My Journey</button>
-      </form>
-    </div>
-  </section>
+    const radius = 70;
+    const circumference = 2 * Math.PI * radius;
 
-  <footer id="contact" class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h3>IronPeak Gym</h3>
-        <p>123 Strength Way, Iron City<br />Phone: (555) 987-6543<br />Email: welcome@ironpeak.com</p>
-      </div>
-      <div>
-        <h3>Hours</h3>
-        <p>Mon-Fri: 5AM - 11PM<br />Sat-Sun: 7AM - 9PM</p>
-      </div>
-      <div>
-        <h3>Social</h3>
-        <p><a href="#">Facebook</a> · <a href="#">Instagram</a> · <a href="#">YouTube</a></p>
-      </div>
-    </div>
-    <p class="copyright">© 2026 IronPeak Gym. All rights reserved.</p>
-  </footer>
+    circle.style.strokeDasharray = circumference;
+    circle.style.strokeDashoffset = circumference;
+
+    let current = 0;
+
+    const animate = () => {
+      if (current <= target) {
+        counter.innerText = current + "%";
+
+        const offset =
+          circumference - (current / 100) * circumference;
+        circle.style.strokeDashoffset = offset;
+
+        current++;
+        requestAnimationFrame(animate);
+      }
+    };
+
+    animate();
+  });
+
+  const mainImg = document.getElementById("mainImg");
+const thumbs = document.querySelectorAll(".thumb");
+
+thumbs.forEach((thumb) => {
+  thumb.addEventListener("click", function () {
+    
+    // Change main image
+    mainImg.src = this.src;
+
+    // Remove active from all
+    thumbs.forEach(t => t.classList.remove("active"));
+
+    // Add active to clicked
+    this.classList.add("active");
+  });
+});
+</script>
+    
+
 </body>
+
 </html>
